@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>❤️ Happy Birthday Kinza ❤️</title>
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+<style>
+:root {
+    --primary-pink: #ff4081;
+    --glow-color: #ff1493;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+body{
+    background: linear-gradient(135deg, #ff6a88, #ff99ac, #ffc3a0);
+    color: white;
+    text-align: center;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+/* Smooth custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+}
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 4px;
+}
+
+.neon{
+    margin-top: 30px;
+    font-size: 65px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    animation: glow 2s infinite alternate;
+}
+
+@keyframes glow{
+    from{ text-shadow: 0 0 10px #fff, 0 0 20px var(--glow-color), 0 0 30px var(--glow-color); }
+    to{ text-shadow: 0 0 20px #fff, 0 0 40px #ff007f, 0 0 60px #ff007f; }
+}
+
+.container{
+    padding: 20px;
+    max-width: 800px;
+    margin: auto;
+}
+
+/* Glassmorphism Card Effect for a premium look */
+.card {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 24px;
+    padding: 35px;
+    margin-top: 30px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.15);
+    transform: translateY(20px);
+    opacity: 0;
+    animation: fadeInUp 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+h1{
+    font-size: 42px;
+    margin-bottom: 10px;
+    font-weight: 800;
+}
+
+p{
+    font-size: 20px;
+    line-height: 1.8;
+    font-weight: 400;
+}
+
+h2 {
+    font-size: 32px;
+    margin-top: 40px;
+}
+
+#loveTimer{
+    margin-top: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 1.8;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 20px;
+    border-radius: 15px;
+    display: inline-block;
+    width: 100%;
+    box-shadow: inset 0 0 10px rgba(255,255,255,0.2);
+}
+
+.timer-highlight {
+    color: #fff;
+    text-shadow: 0 0 8px rgba(255, 20, 147, 0.8);
+    font-family: monospace;
+    font-size: 28px;
+}
+
+/* Floating Audio Control */
+.audio-control {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 10px 15px;
+    border-radius: 30px;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+.audio-control:hover {
+    background: white;
+    color: var(--primary-pink);
+}
+
+button.cta-btn{
+    margin-top: 35px;
+    padding: 16px 40px;
+    font-size: 22px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    background: white;
+    color: var(--primary-pink);
+    font-weight: bold;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+button.cta-btn:hover{
+    transform: scale(1.08) translateY(-3px);
+    box-shadow: 0 15px 25px rgba(0,0,0,0.15);
+}
+
+button.cta-btn:active {
+    transform: scale(0.98) translateY(0);
+}
+
+#surprise{
+    margin-top: 35px;
+    font-size: 26px;
+    display: none;
+    opacity: 0;
+    transform: scale(0.9);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    background: rgba(255, 255, 255, 0.2);
+    padding: 30px;
+    border-radius: 20px;
+    line-height: 1.8;
+}
+
+.heart{
+    position: fixed;
+    bottom: -50px;
+    animation: float 7s linear infinite;
+    pointer-events: none;
+    z-index: 1;
+}
+
+@keyframes float{
+    0%{ transform: translateY(0) rotate(0deg); opacity: 1; }
+    100%{ transform: translateY(-115vh) rotate(360deg); opacity: 0; }
+}
+
+@media(max-width:768px){
+    .neon{ font-size: 45px; }
+    h1{ font-size: 32px; }
+    p{ font-size: 18px; }
+    #loveTimer{ font-size: 18px; }
+    .timer-highlight { font-size: 22px; }
+    .card { padding: 20px; }
+}
+</style>
+</head>
+<body>
+
+<audio id="bgMusic" loop>
+    <source src="YOUR_MUSIC_URL_HERE.mp3" type="audio/mpeg">
+</audio>
+<button class="audio-control" onclick="toggleMusic()" id="musicBtn">🎵 Play Music</button>
+
+<div class="neon">❤️ KINZA ❤️</div>
+
+<div class="container">
+    <div class="card">
+        <h1>🎂 Happy Birthday My Love 🎂</h1>
+        <p>
+            Dear Kinza,
+            <br><br>
+            Happy Birthday to the most beautiful girl in my life.
+            Thank you for filling my days with happiness, love, and unforgettable memories.
+            <br><br>
+            I pray that your smile never fades, your dreams come true, and we continue making wonderful memories together.
+            <br><br>
+            You are my happiness, my peace, my best friend, and my forever.
+            <br><br>
+            <span style="font-size: 24px;">💕 Happy Birthday My Princess. 💕</span>
+        </p>
+
+        <h2>💕 Our Love Journey 💕</h2>
+        <div id="loveTimer"></div>
+
+        <button class="cta-btn" onclick="showSurprise(this)">
+            🎁 Open Your Surprise
+        </button>
+
+        <div id="surprise">
+            <span style="font-size: 32px; font-weight: 900; color: #fff; text-shadow: 0 0 10px rgba(255,255,255,0.5);">
+                ❤️ I LOVE YOU KINZA ❤️
+            </span>
+            <br><br>
+            Thank you for choosing me.
+            <br><br>
+            Every moment with you is a blessing.
+            I promise to stand beside you, care for you, and love you with all my heart.
+            <br><br>
+            🌹 Happy Birthday My Love 🌹
+        </div>
+    </div>
+</div>
+
+<script>
+// Toggle Background Music Function
+function toggleMusic() {
+    const music = document.getElementById("bgMusic");
+    const btn = document.getElementById("musicBtn");
+    if (music.paused) {
+        music.play().catch(e => console.log("Audio playback requires user interaction first."));
+        btn.innerHTML = "⏸️ Pause Music";
+    } else {
+        music.pause();
+        btn.innerHTML = "🎵 Play Music";
+    }
+}
+
+// Surprise Activation
+function showSurprise(btnElement){
+    const surprise = document.getElementById("surprise");
+    
+    confetti({
+        particleCount: 150,
+        spread: 80,
+        origin: { y: 0.6 }
+    });
+
+    setTimeout(() => {
+        confetti({ particleCount: 50, angle: 60, spread: 55, origin: { x: 0 } });
+        confetti({ particleCount: 50, angle: 120, spread: 55, origin: { x: 1 } });
+    }, 400);
+
+    surprise.style.display = "block";
+    setTimeout(() => {
+        surprise.style.opacity = "1";
+        surprise.style.transform = "scale(1)";
+    }, 50);
+
+    btnElement.style.opacity = "0";
+    setTimeout(() => { btnElement.style.display = "none"; }, 300);
+}
+
+// Love Timer
+function updateLoveTimer(){
+    const startDate = new Date(2024, 8, 22, 0, 0, 0);
+    const now = new Date();
+    
+    let diff = now - startDate;
+
+    let totalSeconds = Math.floor(diff / 1000);
+    let totalMinutes = Math.floor(totalSeconds / 60);
+    let totalHours = Math.floor(totalMinutes / 60);
+    let totalDays = Math.floor(totalHours / 24);
+
+    let years = Math.floor(totalDays / 365.25);
+    let remainingDays = Math.floor(totalDays % 365.25);
+
+    let months = Math.floor(remainingDays / 30.44);
+    let days = Math.floor(remainingDays % 30.44);
+
+    let hours = totalHours % 24;
+    let minutes = totalMinutes % 60;
+    let seconds = totalSeconds % 60;
+
+    const format = num => String(num).padStart(2, '0');
+
+    // Updated line to reflect "Kinza & Ebrahim"
+    document.getElementById("loveTimer").innerHTML =
+        "<span style='font-size: 26px;'>❤️ Kinza & Ebrahim ❤️</span><br><br>" +
+        "Together Since 22 September 2024<br><br>" +
+        "<div class='timer-highlight'>" +
+        years + " Yrs " + months + " Mos " + days + " Days<br>" +
+        format(hours) + "h : " + format(minutes) + "m : " + format(seconds) + "s" +
+        "</div><br>" +
+        "💖 Every second with you is my favorite memory. 💖";
+}
+
+setInterval(updateLoveTimer, 1000);
+updateLoveTimer();
+
+// Floating Hearts Engine
+function createHeart(){
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    const heartTypes = ["❤️", "💖", "💕", "🌸", "✨"];
+    heart.innerHTML = heartTypes[Math.floor(Math.random() * heartTypes.length)];
+    
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (16 + Math.random() * 24) + "px";
+    heart.style.animationDuration = (5 + Math.random() * 5) + "s";
+    
+    heart.style.transform = `rotate(${Math.random() * 20 - 10}deg)`;
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 10000);
+}
+
+setInterval(createHeart, 400);
+</script>
+
+</body>
+</html>
